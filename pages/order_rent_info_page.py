@@ -6,12 +6,12 @@ from constants.constants import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
+from pages.base_page import BasePage
 
-class OrderRentInfo():
-        
+class OrderRentInfo(BasePage):
+
     def __init__(self, driver): 
-        self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
+        super().__init__(driver)
     
     @allure.step('Устанавливаем дату')
     def set_date(self):

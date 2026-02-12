@@ -4,17 +4,20 @@ from selenium import webdriver
 from constants.locators import *
 from constants.constants import *
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
+from pages.base_page import BasePage
+from helpers.select_metro_helper import metro_locator_helper
 
-class OrderUserInfo():
+class OrderUserInfo(BasePage):
         
     def __init__(self, driver, data):
-        self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
         self.name = data[0]
         self.surname = data[1]
         self.address = data[2]
-        self.phone = data[3]
+        self.metro_station = data[3]
+        self.phone = data[4]
+        super().__init__(driver)
     
     def set_name(self):
         self.wait.until(EC.presence_of_element_located(UserLocators.NAME))
@@ -29,7 +32,9 @@ class OrderUserInfo():
     def set_metro_station(self):
         self.driver.find_element(*UserLocators.METRO_DROPDOWN).click()
         self.wait.until(EC.visibility_of_element_located(UserLocators.METRO_LIST))
-        self.driver.find_element(*UserLocators.METRO_STATION).click()
+        locator = metro_locator_helper(self.metro_station)
+        self.driver.find_element(*locator).click()
+        
 
     def set_phone(self):
         self.driver.find_element(*UserLocators.PHONE).send_keys(self.phone)

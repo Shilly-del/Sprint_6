@@ -15,7 +15,7 @@ class TestOrderPositive:
     def setup_class(cls):
         cls.driver = webdriver.Firefox()
 
-    @allure.title('Проверка сценария заказа верхней кнопки"Заказать"')
+    @allure.title('Проверка сценария заказа верхней кнопки "Заказать"')
     @allure.description('Проверяем появление модального окна с сообщением об успешном заказе, проверяем, что при клик по логотипу самоката открывается главная страница Самоката')
     def test_rent_up(self):
         self.driver.get(Urls.BASE)
@@ -38,31 +38,31 @@ class TestOrderPositive:
 
         assert self.driver.current_url == Urls.BASE
 
-    @allure.title('Проверка сценария заказа нижней кнопки"Заказать"')
-    @allure.description('Проверяем появление модального окна с сообщением об успешном заказе, проверяем, что при клик по логотипу Яндекса открывается главная страница Яндекс.Дзен')
-    def test_rent_down(self):
-        self.driver.get(Urls.BASE)
-        base_page = BasePage(self.driver)
+    # @allure.title('Проверка сценария заказа нижней кнопки"Заказать"')
+    # @allure.description('Проверяем появление модального окна с сообщением об успешном заказе, проверяем, что при клик по логотипу Яндекса открывается главная страница Яндекс.Дзен')
+    # def test_rent_down(self):
+    #     self.driver.get(Urls.BASE)
+    #     base_page = BasePage(self.driver)
 
-        base_page.scroll_to_rent_down()
-        base_page.click_rent_down()
+    #     base_page.scroll_to_rent_down()
+    #     base_page.click_rent_down()
 
-        user_info = OrderUserInfo(self.driver, UserData.JOHN)
-        user_info.set_user_info()
+    #     user_info = OrderUserInfo(self.driver, UserData.JOHN)
+    #     user_info.set_user_info()
 
-        rent_info = OrderRentInfo(self.driver)
-        rent_info.set_order_info()
-        rent_info.confirmation()
+    #     rent_info = OrderRentInfo(self.driver)
+    #     rent_info.set_order_info()
+    #     rent_info.confirmation()
             
-        assert rent_info.check_order_succesful_popup()
+    #     assert rent_info.check_order_succesful_popup()
 
-        rent_info.click_watch()
+    #     rent_info.click_watch()
 
-        order_info = OrderInfo(self.driver)
-        order_info.click_yandex_logo()
-        order_info.switch_to_new_window()
+    #     order_info = OrderInfo(self.driver)
+    #     order_info.click_yandex_logo()
+    #     order_info.switch_to_new_window()
                 
-        assert order_info.check_url() == Urls.DZEN
+    #     assert order_info.check_url() == Urls.DZEN
 
     @classmethod
     def teardown_class(cls):

@@ -32,10 +32,9 @@ class UserLocators:
     NAME = (By.XPATH, '//*[@placeholder="* Имя"]')
     SURNAME = (By.XPATH, '//*[@placeholder="* Фамилия"]')
     ADDRESS = (By.XPATH, '//*[@placeholder="* Адрес: куда привезти заказ"]')
-    METRO_DROPDOWN = (By.XPATH, '//*[@wfd-id="id4"]')
+    METRO_DROPDOWN = (By.XPATH, '//*[@class="select-search__input"]')
     PHONE = (By.XPATH, '//*[@wfd-id="id5"]')
     METRO_LIST = (By.XPATH, '//*[@class="select-search__select"]')
-    METRO_STATION = (By.XPATH, '//*[@class="Order_Text__2broi" and text() = "Бульвар Рокоссовского"]')
     NEXT = (By.XPATH, '//div[@class = "Order_NextButton__1_rCA"]/button[text() = "Далее"]')
 
 class RentLocators:
@@ -50,4 +49,7 @@ class RentLocators:
 class Dzenlocators:
     DZEN_HEADER = (By.XPATH, '//header[@id="dzen-header"]')
 
+class MetroStation:
+    ROKOSSOVSKY_BOULEVARD = (By.XPATH, '//*[@class="Order_Text__2broi" and text() = "Бульвар Рокоссовского"]')
+    CHERKIZOVSKAYA = (By.XPATH, '//*[@class="Order_Text__2broi" and text() = "Черкизовская"]')
 
