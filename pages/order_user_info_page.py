@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from helpers.select_metro_helper import metro_locator_helper
 
-class OrderUserInfo(BasePage):
+class OrderUserInfoPage(BasePage):
         
     def __init__(self, driver, data):
         self.name = data[0]
@@ -20,24 +20,22 @@ class OrderUserInfo(BasePage):
         super().__init__(driver)
     
     def set_name(self):
-        self.wait.until(EC.presence_of_element_located(UserLocators.NAME))
-        self.driver.find_element(*UserLocators.NAME).send_keys(self.name)
+        self.find_element(UserLocators.NAME).send_keys(self.name)
 
     def set_surname(self):
-        self.driver.find_element(*UserLocators.SURNAME).send_keys(self.surname)
+        self.find_element(UserLocators.SURNAME).send_keys(self.surname)
 
     def set_address(self):
-        self.driver.find_element(*UserLocators.ADDRESS).send_keys(self.address)
+        self.find_element(UserLocators.ADDRESS).send_keys(self.address)
 
     def set_metro_station(self):
-        self.driver.find_element(*UserLocators.METRO_DROPDOWN).click()
-        self.wait.until(EC.visibility_of_element_located(UserLocators.METRO_LIST))
+        self.find_element(UserLocators.METRO_DROPDOWN).click()
+        self.wait_visibility(UserLocators.METRO_LIST)
         locator = metro_locator_helper(self.metro_station)
-        self.driver.find_element(*locator).click()
+        self.click(locator)
         
-
     def set_phone(self):
-        self.driver.find_element(*UserLocators.PHONE).send_keys(self.phone)
+        self.find_element(UserLocators.PHONE).send_keys(self.phone)
 
     @allure.step('Нажимаем "Далее"')   
     def click_order_next(self):
@@ -52,5 +50,6 @@ class OrderUserInfo(BasePage):
         self.set_metro_station()
         self.set_phone()
         self.click_order_next()
+        return self
 
     

@@ -1,4 +1,3 @@
-import time
 import allure
 
 from selenium import webdriver
@@ -9,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
-class OrderInfo(BasePage):
+class OrderInfoPage(BasePage):
 
     def __init__(self, driver): 
         super().__init__(driver)
@@ -23,16 +22,6 @@ class OrderInfo(BasePage):
     def click_yandex_logo(self):
         self.wait.until(EC.element_to_be_clickable(BaseLocators.LOGO))
         self.driver.find_element(*BaseLocators.LOGO).click()
-
-    @allure.step('Переключаемся на новую вкладку')            
-    def switch_to_new_window(self):
-        current_window = self.driver.current_window_handle
-        all_windows = self.driver.window_handles
-        for window in all_windows:
-            if window != current_window:
-                self.driver.switch_to.window(window)
-                break
-        time.sleep(5)
 
     @allure.step('Получаем адрес страницы')
     def check_url(self):

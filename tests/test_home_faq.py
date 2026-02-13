@@ -4,7 +4,7 @@ import allure
 from selenium import webdriver
 from constants.constants import *
 from constants.locators import *
-from pages.base_page import BasePage
+from pages.start_page import StartPage
 
 
 class TestHomeFaq:
@@ -28,12 +28,11 @@ class TestHomeFaq:
     @pytest.mark.parametrize("accordion_number, accordion_text, expected_text", sets)
     def test_home_faq(self, accordion_number, accordion_text, expected_text):
 
-        self.driver.get(Urls.BASE)
-        base_page = BasePage(self.driver)
-
-        base_page.scroll_to_home_faq()
-        base_page.click_accordion(accordion_number, accordion_text)
-        answer = base_page.get_answer_text(accordion_text)
+        start_page = StartPage(self.driver)
+        start_page.open_start() 
+        start_page.scroll_to_home_faq()
+        start_page.click_accordion(accordion_number, accordion_text)
+        answer = start_page.get_answer_text(accordion_text)
 
         assert answer == expected_text
 

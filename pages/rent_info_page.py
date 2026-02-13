@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
 from pages.base_page import BasePage
 
-class OrderRentInfo(BasePage):
+class RentInfoPage(BasePage):
 
     def __init__(self, driver): 
         super().__init__(driver)
