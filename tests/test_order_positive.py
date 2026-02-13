@@ -12,45 +12,40 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class TestOrderPositive:
-    driver = None
-    
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
-
-    # @allure.title('Проверка сценария заказа верхней кнопки "Заказать"')
-    # @allure.description('Проверяем появление модального окна с сообщением об успешном заказе, проверяем, что при клик по логотипу самоката открывается главная страница Самоката')
-    # def test_rent_up(self):
-
-    #     start_page = StartPage(self.driver)
-    #     user_info = OrderUserInfoPage(self.driver, UserData.IVAN)
-    #     rent_info = RentInfoPage(self.driver)
-    #     order_info = OrderInfoPage(self.driver)
         
-    #     start_page.open_start()
-    #     start_page.click_rent_up()
+    @allure.title('Проверка сценария заказа верхней кнопки "Заказать"')
+    @allure.description('Проверяем появление модального окна с сообщением об успешном заказе, проверяем, что при клик по логотипу самоката открывается главная страница Самоката')
+    def test_rent_up(self, driver):
 
-    #     user_info.set_user_info()
+        start_page = StartPage(driver)
+        user_info = OrderUserInfoPage(driver, UserData.IVAN)
+        rent_info = RentInfoPage(driver)
+        order_info = OrderInfoPage(driver)
+        
+        start_page.open_start()
+        start_page.click_rent_up()
 
-    #     rent_info.set_order_info()
-    #     rent_info.confirmation()
+        user_info.set_user_info()
+
+        rent_info.set_order_info()
+        rent_info.confirmation()
             
-    #     assert rent_info.check_order_succesful_popup()
+        assert rent_info.check_order_succesful_popup()
 
-    #     rent_info.click_watch()
+        rent_info.click_watch()
        
-    #     order_info.click_scooter()
+        order_info.click_scooter()
 
-    #     assert self.driver.current_url == Urls.BASE
+        assert order_info.check_url() == Urls.BASE
 
     @allure.title('Проверка сценария заказа нижней кнопки"Заказать"')
     @allure.description('Проверяем появление модального окна с сообщением об успешном заказе, проверяем, что при клик по логотипу Яндекса открывается главная страница Яндекс.Дзен')
-    def test_rent_down(self):
+    def test_rent_down(self, driver):
 
-        start_page = StartPage(self.driver)
-        user_info = OrderUserInfoPage(self.driver, UserData.JOHN)
-        rent_info = RentInfoPage(self.driver)
-        order_info = OrderInfoPage(self.driver)
+        start_page = StartPage(driver)
+        user_info = OrderUserInfoPage(driver, UserData.JOHN)
+        rent_info = RentInfoPage(driver)
+        order_info = OrderInfoPage(driver)
         
         start_page.open_start()
         start_page.scroll_to_rent_down()
@@ -70,7 +65,5 @@ class TestOrderPositive:
                 
         assert order_info.check_url() == Urls.DZEN
 
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
+   
 

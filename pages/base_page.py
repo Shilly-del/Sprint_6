@@ -48,5 +48,8 @@ class BasePage():
                 self.driver.switch_to.window(window)
                 break
         time.sleep(5)
+    
+    def check_url(self):
+        return self.driver.current_url
 
    

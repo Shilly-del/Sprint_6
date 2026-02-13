@@ -23,7 +23,5 @@ class OrderInfoPage(BasePage):
         self.wait.until(EC.element_to_be_clickable(BaseLocators.LOGO))
         self.driver.find_element(*BaseLocators.LOGO).click()
 
-    @allure.step('Получаем адрес страницы')
-    def check_url(self):
-        return self.driver.current_url
+    
 
