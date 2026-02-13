@@ -18,14 +18,14 @@ class TestOrderPositive:
     def test_rent_up(self, driver):
 
         start_page = StartPage(driver)
-        user_info = OrderUserInfoPage(driver, UserData.IVAN)
+        user_info = OrderUserInfoPage(driver)
         rent_info = RentInfoPage(driver)
         order_info = OrderInfoPage(driver)
         
         start_page.open_start()
         start_page.click_rent_up()
 
-        user_info.set_user_info()
+        user_info.set_user_info(UserData.IVAN)
 
         rent_info.set_order_info()
         rent_info.confirmation()
@@ -43,7 +43,7 @@ class TestOrderPositive:
     def test_rent_down(self, driver):
 
         start_page = StartPage(driver)
-        user_info = OrderUserInfoPage(driver, UserData.JOHN)
+        user_info = OrderUserInfoPage(driver)
         rent_info = RentInfoPage(driver)
         order_info = OrderInfoPage(driver)
         
@@ -51,7 +51,7 @@ class TestOrderPositive:
         start_page.scroll_to_rent_down()
         start_page.click_rent_down()
 
-        user_info.set_user_info()
+        user_info.set_user_info(UserData.JOHN)
 
         rent_info.set_order_info()
         rent_info.confirmation()

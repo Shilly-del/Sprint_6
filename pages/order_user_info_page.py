@@ -11,31 +11,26 @@ from helpers.select_metro_helper import metro_locator_helper
 
 class OrderUserInfoPage(BasePage):
         
-    def __init__(self, driver, data):
-        self.name = data[0]
-        self.surname = data[1]
-        self.address = data[2]
-        self.metro_station = data[3]
-        self.phone = data[4]
+    def __init__(self, driver):
         super().__init__(driver)
     
-    def set_name(self):
-        self.find_element(UserLocators.NAME).send_keys(self.name)
+    def set_name(self, name):
+        self.find_element(UserLocators.NAME).send_keys(name)
 
-    def set_surname(self):
-        self.find_element(UserLocators.SURNAME).send_keys(self.surname)
+    def set_surname(self, surname):
+        self.find_element(UserLocators.SURNAME).send_keys(surname)
 
-    def set_address(self):
-        self.find_element(UserLocators.ADDRESS).send_keys(self.address)
+    def set_address(self, address):
+        self.find_element(UserLocators.ADDRESS).send_keys(address)
 
-    def set_metro_station(self):
+    def set_metro_station(self, metro_station):
         self.find_element(UserLocators.METRO_DROPDOWN).click()
         self.wait_visibility(UserLocators.METRO_LIST)
-        locator = metro_locator_helper(self.metro_station)
+        locator = metro_locator_helper(metro_station)
         self.click(locator)
         
-    def set_phone(self):
-        self.find_element(UserLocators.PHONE).send_keys(self.phone)
+    def set_phone(self, phone):
+        self.find_element(UserLocators.PHONE).send_keys(phone)
 
     @allure.step('Нажимаем "Далее"')   
     def click_order_next(self):
@@ -43,12 +38,12 @@ class OrderUserInfoPage(BasePage):
         self.driver.find_element(*UserLocators.NEXT).click()
 
     @allure.step('Устанавливаем информацию о пользователе')
-    def set_user_info(self):
-        self.set_name()
-        self.set_surname()
-        self.set_address()
-        self.set_metro_station()
-        self.set_phone()
+    def set_user_info(self, data):
+        self.set_name(data[0])
+        self.set_surname(data[1])
+        self.set_address(data[2])
+        self.set_metro_station(data[3])
+        self.set_phone(data[4])
         self.click_order_next()
         return self
 
