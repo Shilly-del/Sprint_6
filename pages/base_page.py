@@ -37,6 +37,9 @@ class BasePage():
     def wait_clickable(self, locator):
         self.wait.until(EC.element_to_be_clickable(locator))
 
+    def wait_presense(self, locator):
+        self.wait.until(EC.element_to_be_clickable(locator))
+
     def get_text(self, locator):
         return self.find_element(locator).text
 

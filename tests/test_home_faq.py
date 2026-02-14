@@ -25,10 +25,10 @@ class TestHomeFaq:
     def test_home_faq(self, driver, accordion_number, accordion_text, expected_text):
 
         start_page = StartPage(driver)
-        start_page.open_start() 
-        start_page.scroll_to_home_faq()
-        start_page.click_accordion(accordion_number, accordion_text)
-        answer = start_page.get_answer_text(accordion_text)
+
+        accordion = start_page.open_start().scroll_to_home_faq().click_accordion(accordion_number, accordion_text)
+
+        answer = accordion.get_answer_text(accordion_text)
 
         assert answer == expected_text
     

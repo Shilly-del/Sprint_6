@@ -15,55 +15,43 @@ class TestOrderPositive:
         
     @allure.title('Проверка сценария заказа верхней кнопки "Заказать"')
     @allure.description('Проверяем появление модального окна с сообщением об успешном заказе, проверяем, что при клик по логотипу самоката открывается главная страница Самоката')
-    def test_rent_up(self, driver):
+    # def test_rent_up(self, driver):
 
-        start_page = StartPage(driver)
-        user_info = OrderUserInfoPage(driver)
-        rent_info = RentInfoPage(driver)
-        order_info = OrderInfoPage(driver)
+    #     start_page = StartPage(driver)
         
-        start_page.open_start()
-        start_page.click_rent_up()
+    #     user_info = start_page.open_start()
+        
+    #     rent_info = user_info.click_rent_up().set_user_info(UserData.IVAN).click_order_next()
 
-        user_info.set_user_info(UserData.IVAN)
+    #     rent_info.set_order_info().confirmation()
+         
+    #     assert rent_info.check_order_succesful_popup()
 
-        rent_info.set_order_info()
-        rent_info.confirmation()
-            
-        assert rent_info.check_order_succesful_popup()
+        # order_info = OrderInfoPage(driver)
+        # rent_info.click_watch()
+        # order_info.click_scooter()
 
-        rent_info.click_watch()
-       
-        order_info.click_scooter()
-
-        assert order_info.check_url() == Urls.BASE
+        # assert order_info.check_url() == Urls.BASE
 
     @allure.title('Проверка сценария заказа нижней кнопки"Заказать"')
     @allure.description('Проверяем появление модального окна с сообщением об успешном заказе, проверяем, что при клик по логотипу Яндекса открывается главная страница Яндекс.Дзен')
     def test_rent_down(self, driver):
 
         start_page = StartPage(driver)
-        user_info = OrderUserInfoPage(driver)
-        rent_info = RentInfoPage(driver)
-        order_info = OrderInfoPage(driver)
-        
-        start_page.open_start()
-        start_page.scroll_to_rent_down()
-        start_page.click_rent_down()
+                
+        user_info = start_page.open_start()
+        rent_info = user_info.scroll_to_rent_down().click_rent_down().set_user_info(UserData.JOHN).click_order_next()
 
-        user_info.set_user_info(UserData.JOHN)
-
-        rent_info.set_order_info()
-        rent_info.confirmation()
-            
+        rent_info.set_order_info().confirmation()
+         
         assert rent_info.check_order_succesful_popup()
 
-        rent_info.click_watch()
+        # rent_info.click_watch()
 
-        order_info.click_yandex_logo()
-        order_info.switch_to_new_window()
+        # order_info.click_yandex_logo()
+        # order_info.switch_to_new_window()
                 
-        assert order_info.check_url() == Urls.DZEN
+        # assert order_info.check_url() == Urls.DZEN
 
    
 

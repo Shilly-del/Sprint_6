@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
+from pages.rent_info_page import RentInfoPage
 from helpers.select_metro_helper import metro_locator_helper
 
 class OrderUserInfoPage(BasePage):
@@ -36,6 +37,7 @@ class OrderUserInfoPage(BasePage):
     def click_order_next(self):
         self.wait.until(EC.element_to_be_clickable(UserLocators.NEXT))
         self.driver.find_element(*UserLocators.NEXT).click()
+        return RentInfoPage(self.driver)
 
     @allure.step('Устанавливаем информацию о пользователе')
     def set_user_info(self, data):
@@ -44,7 +46,9 @@ class OrderUserInfoPage(BasePage):
         self.set_address(data[2])
         self.set_metro_station(data[3])
         self.set_phone(data[4])
-        self.click_order_next()
         return self
+        
+        
+        
 
     

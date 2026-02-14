@@ -15,13 +15,13 @@ class OrderInfoPage(BasePage):
 
     @allure.step('Кликаем по логотипу Самоката') 
     def click_scooter(self):
-        self.driver.find_element(*BaseLocators.SCOOTER).click()
-        self.wait.until(EC.presence_of_element_located(BaseLocators.HEADER))
+        self.wait_clickable(BaseLocators.SCOOTER)
+        self.click(BaseLocators.SCOOTER)
+        self.wait_presense(BaseLocators.HEADER)
 
     @allure.step('Кликаем по логотипу Яндекса') 
     def click_yandex_logo(self):
-        self.wait.until(EC.element_to_be_clickable(BaseLocators.LOGO))
-        self.driver.find_element(*BaseLocators.LOGO).click()
-
+        self.wait_clickable(BaseLocators.LOGO)
+        self.click(BaseLocators.LOGO)
     
 

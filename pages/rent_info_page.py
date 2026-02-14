@@ -45,6 +45,7 @@ class RentInfoPage(BasePage):
         self.set_date()
         self.set_rent_period()
         self.click_order_next()
+        return self
 
     @allure.step('Проверяем появление модального окна')
     def check_order_succesful_popup(self):
