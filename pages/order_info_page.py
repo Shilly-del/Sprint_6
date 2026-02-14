@@ -17,7 +17,6 @@ class OrderInfoPage(BasePage):
     def click_scooter(self):
         self.wait_clickable(BaseLocators.SCOOTER)
         self.click(BaseLocators.SCOOTER)
-        self.wait_presense(BaseLocators.HEADER)
 
     @allure.step('Кликаем по логотипу Яндекса') 
     def click_yandex_logo(self):

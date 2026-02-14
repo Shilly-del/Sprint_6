@@ -35,8 +35,8 @@ class OrderUserInfoPage(BasePage):
 
     @allure.step('Нажимаем "Далее"')   
     def click_order_next(self):
-        self.wait.until(EC.element_to_be_clickable(UserLocators.NEXT))
-        self.driver.find_element(*UserLocators.NEXT).click()
+        self.wait_clickable(UserLocators.NEXT)
+        self.click(UserLocators.NEXT)
         return RentInfoPage(self.driver)
 
     @allure.step('Устанавливаем информацию о пользователе')
