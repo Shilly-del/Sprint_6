@@ -1,13 +1,10 @@
 import allure
 
-from selenium import webdriver
 from constants.locators import *
 from constants.constants import *
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from datetime import datetime, timedelta
 from pages.base_page import BasePage
 from pages.order_info_page import OrderInfoPage
+from datetime import datetime, timedelta
 
 class RentInfoPage(BasePage):
 

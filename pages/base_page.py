@@ -1,4 +1,3 @@
-import allure
 import time
 
 from selenium import webdriver

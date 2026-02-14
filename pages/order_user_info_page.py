@@ -1,11 +1,7 @@
 import allure
 
-from selenium import webdriver
 from constants.locators import *
 from constants.constants import *
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from pages.rent_info_page import RentInfoPage
 from helpers.select_metro_helper import metro_locator_helper

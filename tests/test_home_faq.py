@@ -1,9 +1,6 @@
-import pytest
 import allure
 
-from selenium import webdriver
 from constants.constants import *
-from constants.locators import *
 from pages.start_page import StartPage
 
 

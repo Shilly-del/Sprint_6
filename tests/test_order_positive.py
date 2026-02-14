@@ -1,15 +1,7 @@
-import pytest
 import allure
 
-from selenium import webdriver
 from constants.constants import *
-from constants.locators import *
 from pages.start_page import StartPage
-from pages.order_user_info_page import OrderUserInfoPage
-from pages.rent_info_page import RentInfoPage
-from pages.order_info_page import  OrderInfoPage
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 class TestOrderPositive:
         

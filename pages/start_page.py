@@ -1,11 +1,7 @@
 import allure
 
-from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 from constants.locators import *
 from constants.constants import *
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from pages.order_user_info_page import OrderUserInfoPage
 
