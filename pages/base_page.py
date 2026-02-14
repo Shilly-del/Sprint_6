@@ -50,5 +50,3 @@ class BasePage():
     
     def check_url(self):
         return self.driver.current_url
-
-   
