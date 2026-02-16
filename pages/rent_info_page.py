@@ -25,7 +25,7 @@ class RentInfoPage(BasePage):
         self.wait_clickable(RentLocators.ORDER)
         self.click(RentLocators.ORDER)
 
-    @allure.step('Нажимаем "ДА"')
+    @allure.step('Нажимаем "Заказать"')
     def confirmation(self):
         self.wait_clickable(RentLocators.CONFIRM)
         self.click(RentLocators.CONFIRM)
