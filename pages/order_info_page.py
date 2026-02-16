@@ -25,6 +25,6 @@ class OrderInfoPage(BasePage):
         self.find_element(RentLocators.INVERT)
         return self
 
-    def wait_dzen(self):
-        self.wait_visibility(Dzenlocators.DZEN_HEADER)
+    def check_dzen(self):
+        self.check_new_url(Urls.DZEN)
         return self

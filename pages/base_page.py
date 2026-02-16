@@ -53,3 +53,6 @@ class BasePage():
         
     def check_url(self):
         return self.driver.current_url
+
+    def check_new_url(self, url):
+        return self.wait.until(EC.url_to_be(url))

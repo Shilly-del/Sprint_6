@@ -63,9 +63,7 @@ class TestOrderPositive:
 
         order_info.wait_invert().click_yandex_logo().switch_to_new_window()
 
-        order_info.wait_dzen()
-                
-        assert order_info.check_url() == Urls.DZEN
+        assert order_info.check_dzen()
 
    
 
