@@ -31,7 +31,7 @@ class TestOrderPositive:
 
         order_info = rent_info.set_order_info().confirmation().click_watch()
 
-        order_info.click_scooter()
+        order_info.wait_invert().click_scooter()
 
         assert order_info.check_url() == Urls.BASE
 
@@ -61,7 +61,7 @@ class TestOrderPositive:
 
         order_info = rent_info.set_order_info().confirmation().click_watch()
 
-        order_info.click_yandex_logo().switch_to_new_window()
+        order_info.wait_invert().click_yandex_logo().switch_to_new_window()
                 
         assert order_info.check_url() == Urls.DZEN
 

@@ -34,7 +34,7 @@ class RentInfoPage(BasePage):
     @allure.step('Кликаем "Посмотреть статус"')
     def click_watch(self):
         self.wait_clickable(RentLocators.WATCH)
-        self.click(RentLocators.WATCH)
+        self.action_click(RentLocators.WATCH)
         return OrderInfoPage(self.driver)
 
     @allure.step('Устанавливаем информацию об аренде')

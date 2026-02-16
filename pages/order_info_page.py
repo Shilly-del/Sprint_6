@@ -21,4 +21,7 @@ class OrderInfoPage(BasePage):
         self.click(BaseLocators.LOGO)
         return self
     
-
+    def wait_invert(self):
+        self.find_element(RentLocators.INVERT)
+        return self
+        

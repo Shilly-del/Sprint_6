@@ -45,6 +45,7 @@ class RentLocators:
     CONFIRM = (By.XPATH, '//*[@class = "Button_Button__ra12g Button_Middle__1CSJM" and text() = "Да"]')
     WATCH = (By.XPATH, '//*[@class = "Button_Button__ra12g Button_Middle__1CSJM" and text() = "Посмотреть статус"]')
     MODAL = (By.XPATH, '//*[@class="Order_Modal__YZ-d3"]')
+    INVERT = (By.XPATH, '//*[@class = "Button_Button__ra12g Button_Middle__1CSJM Button_Inverted__3IF-i" and text() = "Отменить заказ"]')
     
 class Dzenlocators:
     DZEN_HEADER = (By.XPATH, '//header[@id="dzen-header"]')

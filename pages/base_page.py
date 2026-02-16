@@ -3,6 +3,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 class BasePage():
 
@@ -22,6 +23,11 @@ class BasePage():
     def execute_click(self, locator):
         element = self.find_element(locator)
         self.driver.execute_script("arguments[0].click();", element)
+
+    def action_click(self, locator):
+        element = self.find_element(locator)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).click().perform()
 
     def enter_text(self, locator, text):
         self.find_element(locator).send_keys(text)
