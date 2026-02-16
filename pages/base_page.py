@@ -1,5 +1,3 @@
-import time
-
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -52,7 +50,6 @@ class BasePage():
             if window != current_window:
                 self.driver.switch_to.window(window)
                 break
-        time.sleep(5)
-    
+        
     def check_url(self):
         return self.driver.current_url

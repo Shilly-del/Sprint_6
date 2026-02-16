@@ -62,6 +62,8 @@ class TestOrderPositive:
         order_info = rent_info.set_order_info().confirmation().click_watch()
 
         order_info.wait_invert().click_yandex_logo().switch_to_new_window()
+
+        order_info.wait_dzen()
                 
         assert order_info.check_url() == Urls.DZEN
 

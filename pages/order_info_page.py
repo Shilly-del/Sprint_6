@@ -24,4 +24,7 @@ class OrderInfoPage(BasePage):
     def wait_invert(self):
         self.find_element(RentLocators.INVERT)
         return self
-        
+
+    def wait_dzen(self):
+        self.wait_visibility(Dzenlocators.DZEN_HEADER)
+        return self
