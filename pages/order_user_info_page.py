@@ -33,7 +33,7 @@ class OrderUserInfoPage(BasePage):
     def click_order_next(self):
         self.wait_clickable(UserLocators.NEXT)
         self.click(UserLocators.NEXT)
-        return RentInfoPage(self.driver)
+        
 
     @allure.step('Устанавливаем информацию о пользователе')
     def set_user_info(self, data):
@@ -42,7 +42,7 @@ class OrderUserInfoPage(BasePage):
         self.set_address(data[2])
         self.set_metro_station(data[3])
         self.set_phone(data[4])
-        return self
+        
         
         
         

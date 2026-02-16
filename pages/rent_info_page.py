@@ -29,20 +29,18 @@ class RentInfoPage(BasePage):
     def confirmation(self):
         self.wait_clickable(RentLocators.CONFIRM)
         self.click(RentLocators.CONFIRM)
-        return self
 
     @allure.step('Кликаем "Посмотреть статус"')
     def click_watch(self):
         self.wait_clickable(RentLocators.WATCH)
         self.action_click(RentLocators.WATCH)
-        return OrderInfoPage(self.driver)
+        
 
     @allure.step('Устанавливаем информацию об аренде')
     def set_order_info(self):
         self.set_date()
         self.set_rent_period()
         self.click_order_next()
-        return self
 
     @allure.step('Проверяем появление модального окна')
     def check_order_succesful_popup(self):
